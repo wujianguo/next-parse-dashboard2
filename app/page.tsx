@@ -35,5 +35,5 @@ export default function IndexPage() {
         </Link>
       </div>
     </section>
-  )
+  );
 }
