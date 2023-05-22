@@ -1,11 +1,11 @@
-# next-template
+# next-parse-dashboard
 
-A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
+Next Parse Dashboard is another standalone dashboard for managing your [Parse Server](https://github.com/ParsePlatform/parse-server) apps.
 
-## Usage
+## Development
 
 ```bash
-npx create-next-app -e https://github.com/shadcn/next-template
+pnpm run dev
 ```
 
 ## Features
@@ -20,4 +20,4 @@ npx create-next-app -e https://github.com/shadcn/next-template
 
 ## License
 
-Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
+Licensed under the [MIT license](LICENSE).

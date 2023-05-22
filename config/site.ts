@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Next.js",
+  name: "Parse Dashboard",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    "Another dashboard for managing Parse Server.",
   mainNav: [
     {
       title: "Home",
@@ -11,8 +11,8 @@ export const siteConfig = {
     },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
-    docs: "https://ui.shadcn.com",
+    twitter: "https://twitter.com/ParsePlatform",
+    github: "https://github.com/wujianguo/next-parse-dashboard",
+    docs: "https://github.com/wujianguo/next-parse-dashboard/blob/main/README.md",
   },
 }
