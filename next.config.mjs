@@ -10,7 +10,11 @@ const nextConfig = {
         source: '/',
         destination: '/apps',
         permanent: false,
-      },
+      }, {
+        source: '/apps/:app',
+        destination: '/apps/:app/overview',
+        permanent: false,
+      }
     ];
   },
 }
