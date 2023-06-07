@@ -42,23 +42,14 @@ export default function AppLayout({ children, params }: AppLayoutProps) {
   ];
   const prefix = `/apps/${params.app}/`;
   return (
-    <div className="grid lg:grid-cols-7">
-      <div className="w-full overflow-y-auto px-4 py-2">
+    <div>
+      <div className="fixed inset-0 top-16 z-20 w-full overflow-y-auto px-4 py-2 lg:right-auto lg:w-[13.5rem]">
         <Menu items={items} prefix={prefix} root={true} />
       </div>
-      <div className="col-span-3 lg:col-span-5">
+      <div className="lg:pl-[13.5rem]">
         {children}
       </div>
     </div>
   );
-
-//   <div>
-//   <div className="fixed flex w-full px-4 py-2 lg:w-80">
-//     <Menu items={items} prefix={prefix} root={true} />
-//   </div>
-//   <div className="lg:border-l lg:pl-60">
-//     {children}
-//   </div>
-// </div>
 
 }
