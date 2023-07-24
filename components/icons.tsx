@@ -6,6 +6,7 @@ import {
   Activity,
   Database,
   Bell,
+  Laptop,
   type Icon as LucideIcon,
 } from "lucide-react"
 
@@ -15,6 +16,7 @@ export const Icons = {
   sun: SunMedium,
   moon: Moon,
   twitter: Twitter,
+  laptop: Laptop,
   activity: Activity,
   database: Database,
   bell: Bell,

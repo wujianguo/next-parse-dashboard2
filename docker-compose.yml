@@ -1,0 +1,73 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - /Users/apple/Documents/data/postgres:/var/lib/postgresql
+
+  # mongo:
+  #   image: mongo
+  #   # restart: always
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: root
+  #     MONGO_INITDB_ROOT_PASSWORD: example
+  #   ports:
+  #     - 27017:27017
+  #   volumes:
+  #     - /Users/apple/Documents/data/mongodb:/data/db
+
+  # mongo-express:
+  #   image: mongo-express
+  #   # restart: always
+  #   ports:
+  #     - 8081:8081
+  #   depends_on:
+  #     - mongo
+  #   environment:
+  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
+  #     ME_CONFIG_MONGODB_ADMINPASSWORD: example
+
+  server:
+    image: parseplatform/parse-server:latest
+    # restart: always
+    ports:
+      - 1337:1337
+    depends_on:
+      - mongo
+    environment:
+      PARSE_SERVER_APPLICATION_ID: applicationidx
+      PARSE_SERVER_MASTER_KEY: masterkeyx
+      PARSE_SERVER_CLOUD: /parse-server/cloud/main.js
+      PARSE_SERVER_DATABASE_URI:  "postgresql://postgres:password@postgres:5432/postgres"
+      PARSE_SERVER_URL: "http://localhost:1337/parse"
+      PARSE_SERVER_MASTER_KEY_IPS: "10.201.0.1"
+      PORT: 1337
+    volumes:
+      - /Users/apple/Documents/wujianguo/parse-community/next-parse-dashboard/cloud:/parse-server/cloud
+    #   - /Users/apple/Documents/data/parse/config:/parse-server/config
+
+  dashboard:
+    image: parseplatform/parse-dashboard:latest
+    # restart: always
+    ports:
+      - 4040:4040
+    depends_on:
+      - server
+    volumes:
+      - ./public/parse-dashboard-config.json:/src/Parse-Dashboard/parse-dashboard-config.json
+      - ./public/icons:/src/Parse-Dashboard/icons
+    environment:
+      # PARSE_DASHBOARD_APP_ID: applicationidx
+      # PARSE_DASHBOARD_MASTER_KEY: masterkeyx
+      # PARSE_DASHBOARD_APP_NAME: testappName
+      # PARSE_DASHBOARD_USER_ID: wujianguo
+      # PARSE_DASHBOARD_USER_PASSWORD: wujianguo
+      PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: 'true'
+      # PARSE_DASHBOARD_SERVER_URL: http://localhost:1337/parse

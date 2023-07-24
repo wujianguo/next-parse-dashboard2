@@ -1,0 +1,26 @@
+{
+  "apps": [
+    {
+      "serverURL": "http://localhost:1337/parse",
+      "appId": "applicationidx",
+      "masterKey": "masterkeyx",
+      "appName": "testappName",
+      "iconName": "appicon.png",
+      "allowInsecureHTTP": true
+    },
+    {
+      "serverURL": "http://localhost:1337/parse",
+      "appId": "applicationidx2",
+      "masterKey": "masterkeyx",
+      "allowInsecureHTTP": true,
+      "appName": "My Parse Server App 2"
+    }
+  ],
+  "iconsFolder": "icons",
+  "users": [
+    {
+      "user": "admin",
+      "pass": "admin"
+    }
+  ]
+}
